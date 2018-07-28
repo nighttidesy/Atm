@@ -8,6 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))
 sys.path.append(BASE_DIR)
 
 from shopping  import shopping
+from atm  import atm
 
 while True:
     os.system('clear')
@@ -18,7 +19,7 @@ while True:
         shopping.login_page();
         break
     elif choice_1 == "2":
-        print("Atm")
+        atm.atm_mainpage()
         break
     elif choice_1 == "q":
         break
