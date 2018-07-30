@@ -49,8 +49,8 @@ def writelogs(logfilename,logcontent):                       #logfilename 日志
     with open(BASE_DIR + '/logs/' + logfilename,'a+',encoding='utf-8') as f:
         f.write('{}'.format(time.ctime() + ":  " + logcontent + "\n"));
 
-def user_invoicing(usr)  #用户选购完商品后结账接口
-    print(usr);
+def user_invoicing(your_account):  #用户选购完商品后结账接口
+    print(your_account);
             
 
 #registered new shopping account.
@@ -100,6 +100,7 @@ def registered_account():
 #login auth
 def login(func):
     def login_auth(*args,**kwargs):
+        global your_account
         your_account  = str(input("please input account name: ")).strip();
         your_passwd = str(input("please input your passwd: ")).strip();
         with open( BASE_DIR + "/data/account.txt",'r+',encoding='utf-8') as f:
@@ -134,12 +135,12 @@ def main_shopping():
     while True:
         show_shoplist();
         global serial_number;
-        serial_number = input("(输入car,可以查看购物车;\n输入invoicing，结账;\n输入q退出)\n选择商品号购买商品，请选择: ");
+        serial_number = input("\n\n输入car,可以查看购物车;\n输入invoicing，结账;\n输入q退出;\n选择商品号购买商品，请选择: ");
         if serial_number == "car":
             show_goodscarlist();
-        if serial_number == "invoicing"
-            user_invoicing();
-        if serial_number == "q"
+        if serial_number == "invoicing":
+            user_invoicing(your_account);
+        if serial_number == "q":
             exit();
         else:
             add_shoppingcar();

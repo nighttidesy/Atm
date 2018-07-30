@@ -19,7 +19,7 @@ while True:
         shopping.login_page();
         break
     elif choice_1 == "2":
-        atm.atm_mainpage()
+        atm.atm_wellcome_page();
         break
     elif choice_1 == "q":
         break
